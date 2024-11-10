@@ -1,28 +1,36 @@
-#include <stdio.h>
+# include<stdio.h>
+# include<string.h>
 
-int main() {
-    int start, end, isPrime;
+int main()
+{
+    char arr1[3][10];
+    int i,j,k=0;
+    int len;
 
-    printf("Enter the range (start and end): ");
-    scanf("%d %d", &start, &end);
-
-    printf("Prime numbers between %d and %d are:\n", start, end);
-    for (int num = start; num <= end; num++) {
-        if (num < 2) continue;
-        isPrime = 1;
-        
-        
-        for (int i = 2; i * i <= num; i++) {
-            if (num % i == 0) {
-                isPrime = 0;
-                break;
-            }
-        }
-        
-        if (isPrime) {
-            printf("%d ", num);
-        }
+    for(i=0;i<3;i++)
+    {
+        printf("enter %d name:\n",i+1);
+       scanf("%s",&arr1[i]);
     }
-    printf("\n");
+
+    char arr2[3][10];
+
+    for(i=0;i<3;i++)
+    {
+        strcpy(arr2[i],arr1[i]);
+        strrev(arr2[i]);
+    
+   
+    }
+    int result;
+    for(i=0;i<3;i++)
+    {
+      result=strcmp(arr1[i],arr2[i]);
+
+      if(result==0)
+      {
+        printf("%s is palindrome\n",arr1[i]);
+      }
+    }
     return 0;
 }
